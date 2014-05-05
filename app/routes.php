@@ -16,7 +16,16 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/dog', function()
+Route::get('/test', function()
 {
-	echo 'yep';
+	echo '<pre>';
+	var_dump(app_path() . '/uploads/');
+	var_dump(base_path());
+	var_dump(public_path());
+	var_dump(storage_path());
+	
 });
+
+Route::resource('dog', 'DogController');
+Route::resource('human', 'HumanController');
+

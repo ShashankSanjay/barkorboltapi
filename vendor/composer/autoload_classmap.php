@@ -7,10 +7,19 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'CreateDogsTable' => $baseDir . '/app/database/migrations/2014_04_06_204051_create_dogs_table.php',
+    'CreateHumansTable' => $baseDir . '/app/database/migrations/2014_04_06_204946_create_humans_table.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'Dog' => $baseDir . '/app/models/Dog.php',
+    'DogController' => $baseDir . '/app/controllers/DogController.php',
+    'DogsTableSeeder' => $baseDir . '/app/database/seeds/DogsTableSeeder.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
+    'Human' => $baseDir . '/app/models/Human.php',
+    'HumanController' => $baseDir . '/app/controllers/HumanController.php',
+    'HumansTableSeeder' => $baseDir . '/app/database/seeds/HumansTableSeeder.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
+    'UpdateTablesForeignkeys' => $baseDir . '/app/database/migrations/2014_04_06_205404_update_tables_foreignkeys.php',
     'User' => $baseDir . '/app/models/User.php',
 );

@@ -15,12 +15,12 @@ class UpdateTablesForeignkeys extends Migration {
 		
 		Schema::table('humans', function(Blueprint $table)
 		{
-			$table->foreign('dog')->references('dog_id')->on('dogs');
+			$table->foreign('dog')->references('id')->on('dogs');
 		});
 
 		Schema::table('dogs', function(Blueprint $table)
 		{
-			$table->foreign('human')->references('human_id')->on('humans');
+			$table->foreign('human')->references('id')->on('humans');
 		});
 	}
 

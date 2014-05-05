@@ -20,12 +20,10 @@ class CreateDogsTable extends Migration {
 
 		Schema::table('dogs', function(Blueprint $table)
 		{
-			$table->dropPrimary('id');
-			$table->bigInteger('dog_id')->unsigned()->primary();
-			$table->bigInteger('human')->unsigned();
+			$table->unsignedInteger('human')->nullable();
 			$table->string('name');
 			$table->string('breed');
-			$table->string('dogPicture');
+			$table->string('dogPicture')->nullable();
 		});
 	}
 
@@ -36,7 +34,12 @@ class CreateDogsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('dogs');		
+		Schema::table('dogs', function(Blueprint $table)
+		{
+			$table->dropForeign('dogs_human_foreign');
+			$table->dropUnique('humans_id_unique');
+		});
+		Schema::drop('dogs');	
 	}
 
 }

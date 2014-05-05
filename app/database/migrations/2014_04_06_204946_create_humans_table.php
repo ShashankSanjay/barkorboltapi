@@ -20,11 +20,9 @@ class CreateHumansTable extends Migration {
 
 		Schema::table('humans', function(Blueprint $table)
 		{
-			$table->dropPrimary('id');
-			$table->bigInteger('human_id')->unsigned()->primary();
-			$table->bigInteger('dog')->unsigned();
+			$table->unsignedInteger('dog')->nullable();
 			$table->string('name');
-			$table->string('humanPicture');
+			$table->string('humanPicture')->nullable();
 		});
 	}
 
@@ -35,6 +33,11 @@ class CreateHumansTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('humans', function(Blueprint $table)
+		{
+			$table->dropForeign('humans_dog_foreign');
+			$table->dropUnique('dogs_id_unique');
+		});
 		Schema::drop('humans');
 	}
 
